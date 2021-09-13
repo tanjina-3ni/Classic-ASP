@@ -27,29 +27,29 @@
     %>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function(){
-            $('#searchButton').click(function() {
-                $.ajax({
-                        type: "POST",
-                        url: "search.asp",
-                        data:  $("#formID").serialize(),
-                        cache: false,
-                        dataType: "html",
-                        success: function(response){
-                            alert("Click ok to search");
-                            $('#searchDisplay').html(response.toString());
-                        },
-                        error: function(resposeText){
-                            alert("err");
-                        },
-                    });
+    <script>
+        $(document).ready(function(){
+        $('#searchButton').click(function() {
+            $.ajax({
+                    type: "POST",
+                    url: "search.asp",
+                    data:  $("#formID").serialize(),
+                    cache: false,
+                    dataType: "html",
+                    success: function(response){
+                        alert("Click ok to search");
+                        $('#searchDisplay').html(response.toString());
+                    },
+                    error: function(resposeText){
+                        alert("err");
+                    },
+                });
 
-                return false;
-            });
-            });
-            
-        </script>
+            return false;
+        });
+        });
+        
+    </script>
 
     <div class="card-body" id="searchDisplay">
         <div class="title_container">
