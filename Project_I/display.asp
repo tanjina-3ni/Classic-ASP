@@ -51,17 +51,16 @@
         
     </script>
 
-    <div class="card-body" id="searchDisplay">
+    <div class="card-body" >
         <div class="title_container">
             <h3>All Records</h3>
         </div>
-
 
         <!--#include file="navbar.asp"-->
         
 
 
-        <table class="table table-striped" id="">
+        <table class="table table-striped" id="searchDisplay">
             <thead>
                 <tr>
                     <tr>
@@ -110,6 +109,7 @@
             
             </tbody>
         </table>
+    
     </div>
     
 

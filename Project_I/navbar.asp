@@ -41,54 +41,54 @@
 <body>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-        <nav class="navbar">
-            <div class="content" id="search">
-                <form name="searchForm" method="POST" id="formID">
-                    <div class='part1'>
-                        <label><strong>Name:</strong></label>  
-                        &nbsp;
-                        <input type="text" name="search" placeholder="Name">
-                    </div>
+    <nav class="navbar">
+        <div class="content" id="search">
+            <form name="searchForm" method="POST" id="formID">
+                <div class='part1'>
+                    <label><strong>Name:</strong></label>  
+                    &nbsp;
+                    <input type="text" name="search" placeholder="Name">
+                </div>
+            
+                <div class='part2'>
+                    <label><strong>Date:</strong></label>  
+                    &nbsp;
+                    <input type="date" id="fromperiod" name="from" placeholder="dd-mm-yyyy">
+                    <label for="toperiod">to</label> 
+                    <input type="date" id="toperiod" name="to" placeholder="dd-mm-yyyy">
+                </div>
                 
-                    <div class='part2'>
-                        <label><strong>Date:</strong></label>  
-                        &nbsp;
-                        <input type="date" id="fromperiod" name="from" placeholder="dd-mm-yyyy">
-                        <label for="toperiod">to</label> 
-                        <input type="date" id="toperiod" name="to" placeholder="dd-mm-yyyy">
-                    </div>
-                    
+            
+                <br>
+                <br>
+            
+                <div class='part1'>
+                    <label><strong>Gender:</strong></label>  
+                    &nbsp;
+                    <input type="radio" name="gender" value="Male"> Male   
+                    <input type="radio" name="gender" value="Female"> Female 
+                    <input type="radio" name="gender" value="Others"> Others 
+                </div>
                 
-                    <br>
-                    <br>
+                <div class='part2'>
+                    <label><strong>Skills:</strong></label>  
+                    &nbsp;
+                    <input type="checkbox" name="s1" value="Python">Python
+                    <input type="checkbox" name="s2" value="PHP">PHP
+                    <input type="checkbox" name="s3" value="ASP">ASP
+                    <input type="checkbox" name="s4" value="Vue">Vue 
+                    <input type="checkbox" name="s5" value="Javascript">Javascript 
+                    <input type="checkbox" name="s6" value="React">React
+                    <input type="checkbox" name="s7" value="Angular">Angular
+                    &nbsp;
                 
-                    <div class='part1'>
-                        <label><strong>Gender:</strong></label>  
-                        &nbsp;
-                        <input type="radio" name="gender" value="Male"> Male   
-                        <input type="radio" name="gender" value="Female"> Female 
-                        <input type="radio" name="gender" value="Others"> Others 
-                    </div>
-                    
-                    <div class='part2'>
-                        <label><strong>Skills:</strong></label>  
-                        &nbsp;
-                        <input type="checkbox" name="s1" value="Python">Python
-                        <input type="checkbox" name="s2" value="PHP">PHP
-                        <input type="checkbox" name="s3" value="ASP">ASP
-                        <input type="checkbox" name="s4" value="Vue">Vue 
-                        <input type="checkbox" name="s5" value="Javascript">Javascript 
-                        <input type="checkbox" name="s6" value="React">React
-                        <input type="checkbox" name="s7" value="Angular">Angular
-                        &nbsp;
-                    
-                        <button type="submit" class="button" id="searchButton">Search</button>
-                    </div> 
-                </form>
-            </div>
-        </nav>
+                    <button type="submit" class="button" id="searchButton">Search</button>
+                </div> 
+            </form>
+        </div>
+    </nav>
 
-        
+    
         
         
 
