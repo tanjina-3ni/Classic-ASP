@@ -42,8 +42,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
         <nav class="navbar">
-            <div class="content">
-                <form method="POST" action="search.asp">
+            <div class="content" id="search">
+                <form name="searchForm" method="POST" id="formID">
                     <div class='part1'>
                         <label><strong>Name:</strong></label>  
                         &nbsp;
@@ -82,14 +82,16 @@
                         <input type="checkbox" name="s7" value="Angular">Angular
                         &nbsp;
                     
-                        <button type="submit" class="button">Search</button>
-                    </div>
-                    
-                    
-                
-                    
+                        <button type="submit" class="button" id="searchButton">Search</button>
+                    </div> 
                 </form>
             </div>
         </nav>
+
+        
+        
+        
+
+
 </body>
 </html>

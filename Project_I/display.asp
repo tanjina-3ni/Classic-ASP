@@ -25,16 +25,43 @@
         rs.Open "SELECT * FROM EMP ORDER BY ID", conn
         
     %>
-    <div class="card-body">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            $('#searchButton').click(function() {
+                $.ajax({
+                        type: "POST",
+                        url: "search.asp",
+                        data:  $("#formID").serialize(),
+                        cache: false,
+                        dataType: "html",
+                        success: function(response){
+                            alert("Click ok to search");
+                            $('#searchDisplay').html(response.toString());
+                        },
+                        error: function(resposeText){
+                            alert("err");
+                        },
+                    });
+
+                return false;
+            });
+            });
+            
+        </script>
+
+    <div class="card-body" id="searchDisplay">
         <div class="title_container">
             <h3>All Records</h3>
         </div>
 
 
         <!--#include file="navbar.asp"-->
+        
 
 
-        <table class="table table-striped">
+        <table class="table table-striped" id="">
             <thead>
                 <tr>
                     <tr>

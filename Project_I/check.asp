@@ -20,8 +20,6 @@
         on error resume next
         conn.Execute sql,recaffected
 
-        
-
         conn.close
 
 
