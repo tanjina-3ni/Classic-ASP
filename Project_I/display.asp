@@ -25,6 +25,7 @@
         rs.Open "SELECT * FROM EMP ORDER BY ID", conn
         
     %>
+
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
@@ -41,7 +42,7 @@
                         $('#searchDisplay').html(response.toString());
                     },
                     error: function(resposeText){
-                        alert("err");
+                        alert(resposeText);
                     },
                 });
 
@@ -50,6 +51,7 @@
         });
         
     </script>
+
 
     <div class="card-body" >
         <div class="title_container">
