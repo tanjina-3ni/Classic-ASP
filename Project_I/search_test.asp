@@ -39,8 +39,8 @@
         's6=Request.QueryString("s6")
         's7=Request.QueryString("s7")
 
-        
-        'date logic
+
+
         set rs1=Server.CreateObject("ADODB.Recordset")
         sql1 = "SELECT MIN(DOB) as minDate, MAX(DOB) as maxDate FROM EMP"
         rs1.Open sql1,Conn
@@ -57,8 +57,7 @@
             'Response.Write dto
         end if
         rs1.close
-    
-        'search Condition
+
         if s1 <> "" OR s2 <> "" OR s3 <> "" OR s4 <> "" OR s5 <> "" OR s6 <> "" OR s7 <> "" Then
             skl = 1
         else 
@@ -132,7 +131,6 @@
         
         set rs=Server.CreateObject("ADODB.Recordset")
         rs.Open sql, Conn
-        
         if not rs.BOF then
     %>
 

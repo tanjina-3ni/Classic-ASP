@@ -41,8 +41,8 @@
                         alert("Click ok to search");
                         $('#searchDisplay').html(response.toString());
                     },
-                    error: function(resposeText){
-                        alert(resposeText);
+                    error: function(respose){
+                        alert(respose);
                     },
                 });
 
