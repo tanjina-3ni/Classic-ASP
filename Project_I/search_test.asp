@@ -41,94 +41,52 @@
 
 
 
-        set rs1=Server.CreateObject("ADODB.Recordset")
-        sql1 = "SELECT MIN(DOB) as minDate, MAX(DOB) as maxDate FROM EMP"
-        rs1.Open sql1,Conn
-        if dfrom="" AND dto="" Then
-            dfrom=rs1.Fields("minDate").Value
-            dto=rs1.Fields("maxDate").Value
-            'Response.Write dfrom
-            'Response.Write dto
-        elseif dfrom="" Then
-            dfrom=rs1.Fields("minDate").Value
-            'Response.Write dfrom
-        else:
-            dto=rs1.Fields("maxDate").Value
-            'Response.Write dto
+        'search Condition
+        flag = 0
+        sql = "SELECT * FROM EMP WHERE"
+        
+        if fName <> "" Then
+            sql = sql & " Instr( fname, '" & fName & "')"
+            flag = 1
         end if
-        rs1.close
+            
+        
+        if g <> "" Then
+            if flag=1 Then
+                sql = sql & "AND"
+            end if
+            sql = sql & " Gender='" & g & "'"
+            flag = 1
+            'Response.write sql
+        end if
+
+        if dfrom<>"" Then
+            if flag=1 Then
+                sql = sql & "AND"
+            end if
+            sql = sql & " DOB>=#"& dfrom &"#"
+            flag = 1
+        end if
+
+        if dto<>"" Then
+            if flag=1 Then
+                sql = sql & "AND"
+            end if
+            sql = sql & " DOB<=#"& dto &"#"
+            flag = 1
+        end if
 
         if s1 <> "" OR s2 <> "" OR s3 <> "" OR s4 <> "" OR s5 <> "" OR s6 <> "" OR s7 <> "" Then
-            skl = 1
-        else 
-            skl = 0
+            if flag=1 Then
+                sql = sql & "AND"
+            end if
+            sql = sql & " ID IN(SELECT Emp_ID FROM skills WHERE"
+            sql = sql & " Skills='" & s1 & "' OR Skills='" & s2 & "' OR Skills='" & s3 & "'"
+            sql = sql & " OR Skills='" & s4 & "' OR Skills='" & s5 & "' OR Skills='" & s6 & "'"
+            sql = sql & " OR Skills='" & s7 & "')"
         end if
-
-        fsql = " Instr( fname, '" & fName & "')"
-        gsql = " Gender='" & g & "'"
-        dsql = " DOB BETWEEN #"& dfrom &"# AND #"& dto &"#"
-        ssql =  " ID IN(SELECT Emp_ID FROM skills WHERE"
-            ssql = ssql & " Skills='" & s1 & "' OR Skills='" & s2 & "' OR Skills='" & s3 & "'"
-            ssql = ssql & " OR Skills='" & s4 & "' OR Skills='" & s5 & "' OR Skills='" & s6 & "'"
-            ssql = ssql & " OR Skills='" & s7 & "')"
-
-        sql = "SELECT * FROM EMP WHERE"
-        if fName <> "" AND g <> "" AND skl = 1 Then
-            sql = sql & fsql
-            sql = sql & " AND"
-            sql = sql & gsql
-            sql = sql & " AND"
-            sql = sql & dsql
-            sql = sql & " AND"
-            sql = sql & ssql
-            sql = sql & " AND"
-            sql = sql & dsql
-            'response.write sql
-            'response.end
-        
-        elseif fName <> "" AND g <> "" AND skl = 0 Then
-            sql = sql & fsql
-            sql = sql & " AND"
-            sql = sql & gsql
-            sql = sql & " AND"
-            sql = sql & dsql
-            'Response.write sql
-
-        elseif fName <> "" AND g = "" AND skl = 1 Then
-            sql = sql & fsql
-            sql = sql & " AND"
-            sql = sql & ssql
-            sql = sql & " AND"
-            sql = sql & dsql
-            'Response.write sql
-
-        elseif fName = "" AND g <> "" AND skl = 1 Then
-            sql = sql & gsql
-            sql = sql & " AND"
-            sql = sql & ssql
-            sql = sql & " AND"
-            sql = sql & dsql
-        elseif fName <> "" AND g = "" AND skl = 0 Then
-            sql = sql & fsql
-            sql = sql & " AND"
-            sql = sql & dsql
-            
-            'Response.write sql
-
-        elseif fName = "" AND g <> "" AND skl = 0 Then
-            sql = sql & gsql
-            sql = sql & " AND"
-            sql = sql & dsql
-
-        elseif fName = "" AND g = "" AND skl = 1 Then
-            sql = sql & ssql
-            sql = sql & " AND"
-            sql = sql & dsql
-        
-        else 
-            sql = sql & dsql
-        end if
-        
+        'response.write sql
+        'response.end
         set rs=Server.CreateObject("ADODB.Recordset")
         rs.Open sql, Conn
         if not rs.BOF then

@@ -22,8 +22,8 @@
         'conn.Open "Employee.mdb"
 
         set rs=Server.CreateObject("ADODB.recordset")
-        rs.Open "SELECT * FROM EMP ORDER BY ID", conn
-        
+        sql = "SELECT ID, fname +' '+ lname as name, Email, DOB, Gender FROM EMP ORDER BY ID"
+        rs.Open sql, Conn
     %>
 
     
@@ -67,13 +67,10 @@
                 <tr>
                     <tr>
                         <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Name</th>
                         <th>Email</th>
-                        <th>Phone</th>
                         <th>DOB</th>
                         <th>Gender</th>
-                        <th>Website</th>
                         <th>Action</th>
                     </tr>
                 </tr>
@@ -84,21 +81,20 @@
                 %>
                 <tr>
                     <%
-                     for each x in rs.Fields
-                        if x.name="ID" Then
-                            id = x.value
-                        end if
+                        id = rs("ID")
                     %>
-                        <td><%Response.Write(x.value)%></td>
+                    <td><%Response.Write(id)%></td>
+                    <td><%Response.Write(rs("name"))%></td>
+                    <td><%Response.Write(rs("Email"))%></td>
+                    <td><%Response.Write(rs("DOB"))%></td>
+                    <td><%Response.Write(rs("Gender"))%></td>
                     <%
-                     next
                      rs.MoveNext
                     %>
-                    
-                        <td>
-                            <a href="editnew.asp?id=<%Response.Write(id)%>" class="btn btn-success" >Edit
-                            <a href="delete.asp?id=<%Response.Write(id)%>" class="btn btn-danger" >Delete
-                        </td>
+                    <td>
+                        <a href="editnew.asp?id=<%Response.Write(id)%>" class="btn btn-success" >Edit
+                        <a href="delete.asp?id=<%Response.Write(id)%>" class="btn btn-danger" >Delete
+                    </td>
                 </tr>
             <%
              loop
