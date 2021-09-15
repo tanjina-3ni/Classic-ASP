@@ -73,13 +73,13 @@
                 <div class='part2'>
                     <label><strong>Skills:</strong></label>  
                     &nbsp;
-                    <input type="checkbox" name="s1" value="Python">Python
-                    <input type="checkbox" name="s2" value="PHP">PHP
-                    <input type="checkbox" name="s3" value="ASP">ASP
-                    <input type="checkbox" name="s4" value="Vue">Vue 
-                    <input type="checkbox" name="s5" value="Javascript">Javascript 
-                    <input type="checkbox" name="s6" value="React">React
-                    <input type="checkbox" name="s7" value="Angular">Angular
+                    <input type="checkbox" name="Python" value="Python">Python
+                    <input type="checkbox" name="PHP" value="PHP">PHP
+                    <input type="checkbox" name="ASP" value="ASP">ASP
+                    <input type="checkbox" name="Vue" value="Vue">Vue 
+                    <input type="checkbox" name="Javascript" value="Javascript">Javascript 
+                    <input type="checkbox" name="React" value="React">React
+                    <input type="checkbox" name="Angular" value="Angular">Angular
                     &nbsp;
                 
                     <button type="submit" class="button" id="searchButton">Search</button>

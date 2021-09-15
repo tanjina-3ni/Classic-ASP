@@ -15,16 +15,17 @@
         'conn.Open "Employee.mdb"
         
         fName = Request.Form("search")
-        g = Request.Form("gender")
+        gender = Request.Form("gender")
         dfrom = Request.Form("from")
         dto = Request.Form("to")
-        s1 = Request.Form("s1")
-        s2 = Request.Form("s2")
-        s3 = Request.Form("s3")
-        s4 = Request.Form("s4")
-        s5 = Request.Form("s5")
-        s6 = Request.Form("s6")
-        s7 = Request.Form("s7")
+        python = Request.Form("Python")
+        php = Request.Form("PHP")
+        asp = Request.Form("ASP")
+        vue = Request.Form("Vue")
+        js = Request.Form("Javascript")
+        react = Request.Form("React")
+        angular = Request.Form("Angular")
+        
         
 
         'fName=Request.QueryString("search")
@@ -47,11 +48,11 @@
             sqlWhere = " WHERE Instr( fname, '" & fName & "')"
         end if
         
-        if g <> "" Then
+        if gender <> "" Then
             if sqlWhere = "" Then
-                sqlWhere = " WHERE Gender='" & g & "'"
+                sqlWhere = " WHERE Gender='" & gender & "'"
             else 
-                sqlWhere = sqlWhere & " AND Gender='" & g & "'"
+                sqlWhere = sqlWhere & " AND Gender='" & gender & "'"
             end if
             'Response.write sql
         end if
@@ -72,19 +73,7 @@
             end if
         end if
 
-        if s1 <> "" OR s2 <> "" OR s3 <> "" OR s4 <> "" OR s5 <> "" OR s6 <> "" OR s7 <> "" Then
-            if sqlWhere = "" Then
-                sqlWhere = " WHERE ID IN(SELECT Emp_ID FROM skills WHERE"
-                sqlWhere = sqlWhere & " Skills='" & s1 & "' OR Skills='" & s2 & "' OR Skills='" & s3 & "'"
-                sqlWhere = sqlWhere & " OR Skills='" & s4 & "' OR Skills='" & s5 & "' OR Skills='" & s6 & "'"
-                sqlWhere = sqlWhere & " OR Skills='" & s7 & "')"
-            else 
-                sqlWhere = sqlWhere & " AND ID IN(SELECT Emp_ID FROM skills WHERE"
-                sqlWhere = sqlWhere & " Skills='" & s1 & "' OR Skills='" & s2 & "' OR Skills='" & s3 & "'"
-                sqlWhere = sqlWhere & " OR Skills='" & s4 & "' OR Skills='" & s5 & "' OR Skills='" & s6 & "'"
-                sqlWhere = sqlWhere & " OR Skills='" & s7 & "')"
-            end if
-        end if
+        
         'response.write sql
         'response.end
         sql = sql & sqlWhere

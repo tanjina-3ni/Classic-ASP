@@ -15,18 +15,17 @@
         'conn.Open "Employee.mdb"
         
         fName = Request.Form("search")
-        g = Request.Form("gender")
+        gender = Request.Form("gender")
         dfrom = Request.Form("from")
         dto = Request.Form("to")
-        s1 = Request.Form("s1")
-        s2 = Request.Form("s2")
-        s3 = Request.Form("s3")
-        s4 = Request.Form("s4")
-        s5 = Request.Form("s5")
-        s6 = Request.Form("s6")
-        s7 = Request.Form("s7")
+        python = Request.Form("Python")
+        php = Request.Form("PHP")
+        asp = Request.Form("ASP")
+        vue = Request.Form("Vue")
+        js = Request.Form("Javascript")
+        react = Request.Form("React")
+        angular = Request.Form("Angular")
         
-
         'fName=Request.QueryString("search")
         'g=Request.QueryString("gender")
         'dfrom = Request.QueryString("from")
@@ -39,16 +38,62 @@
         's6=Request.QueryString("s6")
         's7=Request.QueryString("s7")
 
+        
+        'search Conditions
+        'name search
+        sql = "SELECT * FROM EMP INNER JOIN skills on EMP.ID = skills.EMP_ID"
+        sqlWhere = ""
+        if fName <> "" Then
+            sqlWhere = " WHERE Instr( EMP.fname, '" & fName & "')"
+        end if
+        
+        'gender search
+        if gender <> "" Then
+            if sqlWhere = "" Then
+                sqlWhere = " WHERE EMP.Gender='" & gender & "'"
+            else 
+                sqlWhere = sqlWhere & " AND EMP.Gender='" & gender & "'"
+            end if
+        end if
+
+        'date search
+        if dfrom<>"" Then
+            if sqlWhere = "" Then
+                sqlWhere = " WHERE EMP.DOB>=#"& dfrom &"#"
+            else 
+                sqlWhere = sqlWhere & " AND EMP.DOB>=#"& dfrom &"#"
+            end if
+        end if
+
+        if dto<>"" Then
+            if sqlWhere = "" Then
+                sqlWhere = " WHERE EMP.DOB<=#"& dto &"#"
+            else
+                sqlWhere = sqlWhere & " AND EMP.DOB<=#"& dto &"#"
+            end if
+        end if
 
 
-        'search Condition
-        sql = "SELECT * FROM EMP WHERE ( " & fName & " IS NULL OR fname = '" & fName & "') AND (" & g & " IS NULL OR Gender ='" & g & "')"
+        'skills search logic
+        
+            if sqlWhere = "" Then
+                sqlWhere = " WHERE skills.Skills IN ('" & python & "', '" & php & "', '" & asp & "', '" & vue & "', '" & js & "', '" & react & "', '" & angular & "')"
+            else 
+                sqlWhere = sqlWhere & " AND skills.Skills IN ('" & python & "', '" & php & "', '" & asp & "', '" & vue & "', '" & js & "', '" & react & "', '" & angular & "')"
+            end if
+        
 
-       
-        'response.write sql
-        'response.end
+
+
+        
+        
+        sql = sql & sqlWhere
+        response.write sql
+        response.end
+
         set rs=Server.CreateObject("ADODB.Recordset")
         rs.Open sql, Conn
+        
         if not rs.BOF then
     %>
 
