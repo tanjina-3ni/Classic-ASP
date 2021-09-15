@@ -41,52 +41,53 @@
 
         
         'search Condition
-        flag = 0
-        sql = "SELECT * FROM EMP WHERE"
-        
+        sql = "SELECT * FROM EMP"
+        sqlWhere = ""
         if fName <> "" Then
-            sql = sql & " Instr( fname, '" & fName & "')"
-            flag = 1
+            sqlWhere = " WHERE Instr( fname, '" & fName & "')"
         end if
-            
         
         if g <> "" Then
-            if flag=1 Then
-                sql = sql & "AND"
+            if sqlWhere = "" Then
+                sqlWhere = " WHERE Gender='" & g & "'"
+            else 
+                sqlWhere = sqlWhere & " AND Gender='" & g & "'"
             end if
-            sql = sql & " Gender='" & g & "'"
-            flag = 1
             'Response.write sql
         end if
 
         if dfrom<>"" Then
-            if flag=1 Then
-                sql = sql & "AND"
+            if sqlWhere = "" Then
+                sqlWhere = " WHERE DOB>=#"& dfrom &"#"
+            else 
+                sqlWhere = sqlWhere & " AND DOB>=#"& dfrom &"#"
             end if
-            sql = sql & " DOB>=#"& dfrom &"#"
-            flag = 1
         end if
 
         if dto<>"" Then
-            if flag=1 Then
-                sql = sql & "AND"
+            if sqlWhere = "" Then
+                sqlWhere = " WHERE DOB<=#"& dto &"#"
+            else
+                sqlWhere = sqlWhere & " AND DOB<=#"& dto &"#"
             end if
-            sql = sql & " DOB<=#"& dto &"#"
-            flag = 1
         end if
 
         if s1 <> "" OR s2 <> "" OR s3 <> "" OR s4 <> "" OR s5 <> "" OR s6 <> "" OR s7 <> "" Then
-            if flag=1 Then
-                sql = sql & "AND"
+            if sqlWhere = "" Then
+                sqlWhere = " WHERE ID IN(SELECT Emp_ID FROM skills WHERE"
+                sqlWhere = sqlWhere & " Skills='" & s1 & "' OR Skills='" & s2 & "' OR Skills='" & s3 & "'"
+                sqlWhere = sqlWhere & " OR Skills='" & s4 & "' OR Skills='" & s5 & "' OR Skills='" & s6 & "'"
+                sqlWhere = sqlWhere & " OR Skills='" & s7 & "')"
+            else 
+                sqlWhere = sqlWhere & " AND ID IN(SELECT Emp_ID FROM skills WHERE"
+                sqlWhere = sqlWhere & " Skills='" & s1 & "' OR Skills='" & s2 & "' OR Skills='" & s3 & "'"
+                sqlWhere = sqlWhere & " OR Skills='" & s4 & "' OR Skills='" & s5 & "' OR Skills='" & s6 & "'"
+                sqlWhere = sqlWhere & " OR Skills='" & s7 & "')"
             end if
-            sql = sql & " ID IN(SELECT Emp_ID FROM skills WHERE"
-            sql = sql & " Skills='" & s1 & "' OR Skills='" & s2 & "' OR Skills='" & s3 & "'"
-            sql = sql & " OR Skills='" & s4 & "' OR Skills='" & s5 & "' OR Skills='" & s6 & "'"
-            sql = sql & " OR Skills='" & s7 & "')"
         end if
         'response.write sql
         'response.end
-        
+        sql = sql & sqlWhere
         set rs=Server.CreateObject("ADODB.Recordset")
         rs.Open sql, Conn
         
