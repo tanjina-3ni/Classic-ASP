@@ -25,8 +25,6 @@
         js = Request.Form("Javascript")
         react = Request.Form("React")
         angular = Request.Form("Angular")
-        
-        
 
         'fName=Request.QueryString("search")
         'g=Request.QueryString("gender")
@@ -39,7 +37,6 @@
         's5=Request.QueryString("s5")
         's6=Request.QueryString("s6")
         's7=Request.QueryString("s7")
-
         
         'search Condition
         sql = "SELECT * FROM EMP"
@@ -73,6 +70,16 @@
             end if
         end if
 
+        'skills search logic
+        if python<>"" OR php<>"" OR asp<>"" OR vue<>"" OR js<>"" OR react<>"" OR angular<>"" Then
+            if sqlWhere = "" Then
+                sqlWhere = " WHERE ID IN(SELECT Emp_ID FROM skills WHERE"
+                sqlWhere = sqlWhere & " Skills IN ('" & python & "', '" & php & "', '" & asp & "', '" & vue & "', '" & js & "', '" & react & "', '" & angular & "'))"
+            else
+                sqlWhere = sqlWhere & " AND ID IN(SELECT Emp_ID FROM skills WHERE"
+                sqlWhere = sqlWhere & " Skills IN ('" & python & "', '" & php & "', '" & asp & "', '" & vue & "', '" & js & "', '" & react & "', '" & angular & "'))"
+            end if
+        end if
         
         'response.write sql
         'response.end
