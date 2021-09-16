@@ -12,7 +12,7 @@
     conn.Open "C:\inetpub\wwwroot\Project_I\Employee.mdb"
 
     id = Request.QueryString("id")
-
+   
     sql="DELETE FROM EMP"
     sql=sql & " WHERE ID=" & id & ""
 
@@ -27,9 +27,9 @@
     conn.Execute sql1
 
     if err<>0 then
-        response.write("No update permissions!")
+        response.write("No Update permission!")
     else
-        Response.Redirect "display.asp"
+        Response.write(1)
     end if
     conn.close
     %>

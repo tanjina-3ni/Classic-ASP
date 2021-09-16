@@ -50,6 +50,28 @@
         });
         });
         
+    
+        function delete_row(id){
+            var el = this;
+            if (confirm("Are you sure you want to delete this entry?")) {
+                // AJAX Request
+                $.ajax({
+                    url: 'delete.asp?id='+id,
+                    type: 'GET',
+                    success: function(response){
+                        // Remove row from HTML Table
+                        $(el).closest('tr').css('background','tomato');
+                        $(el).closest('tr').fadeOut(800,function(){
+                        $(this).remove();
+                        });
+                        },
+                    error: function(respose){
+                        alert(respose);
+                    },
+                    });
+                return false;
+            }
+        };
     </script>
 
 
@@ -64,7 +86,6 @@
 
         <table class="table table-striped" id="searchDisplay">
             <thead>
-                <tr>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
@@ -73,13 +94,12 @@
                         <th>Gender</th>
                         <th>Action</th>
                     </tr>
-                </tr>
             </thead>
             <tbody>
                 <%
                  do until rs.EOF
                 %>
-                <tr>
+                <tr style ="background: none;">
                     <%
                         id = rs("ID")
                     %>
@@ -93,7 +113,7 @@
                     %>
                     <td>
                         <a href="editnew.asp?id=<%Response.Write(id)%>" class="btn btn-success" >Edit
-                        <a href="delete.asp?id=<%Response.Write(id)%>" class="btn btn-danger" >Delete
+                        <a id="delete_button<%Response.Write(id)%>" class="btn btn-danger" onclick="delete_row('<%Response.Write(id)%>');">Delete
                     </td>
                 </tr>
             <%
