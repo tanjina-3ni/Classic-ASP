@@ -49,33 +49,33 @@
         
 
         
-        Dim s
-        s = rs1.GetRows()
+        Dim skls
+        skls = rs1.GetRows()
         
         rs1.close
-        s1=s2=s3=s4=s5=s6=s7=0
-        For each x in s
+        python=php=asp=js=react=vue=angular=0
+        For each skl in skls
             'response.write x
-            if x="Python" Then
-                s1=1
+            if skl="Python" Then
+                python=1
                'response.write s1
-            elseif x="PHP" Then
-                s2=1
+            elseif skl="PHP" Then
+                php=1
                 'response.write s2
-            elseif x="ASP" then
-                s3=1
+            elseif skl="ASP" then
+                asp=1
                 'response.write s3
-            elseif x="Javascript" Then
-                s4=1
+            elseif skl="Javascript" Then
+                js=1
                 'response.write s4
-            elseif x="React" Then
-                s5=1
+            elseif skl="React" Then
+                react=1
                 'response.write s5
-            elseif x="Vue" Then
-                s6=1
+            elseif skl="Vue" Then
+                vue=1
                 'response.write s6
-            elseif x="Angular" Then
-                s7=1
+            elseif skl="Angular" Then
+                angular=1
                 'response.write s7
             end if
         Next
@@ -143,13 +143,13 @@
                     
                     <div class="form-label"> 
                         <label class="col-md-4 control-label" ><b>Select Skills:</b></label>
-                        <input type="checkbox" name="Skills" <% if s1=1 then %> checked="checked"<%End if%> value="Python">Python
-                        <input type="checkbox" name="Skills" <% if s2=1 then %> checked="checked"<%End if%> value="PHP">PHP
-                        <input type="checkbox" name="Skills" <% if s3=1 then %> checked="checked"<%End if%> value="ASP">ASP
-                        <input type="checkbox" name="Skills" <% if s5=1 then %> checked="checked"<%End if%> value="React">React <br>
-                        <input type="checkbox" name="Skills" <% if s4=1 then %> checked="checked"<%End if%> value="Javascript">Javascript
-                        <input type="checkbox" name="Skills" <% if s6=1 then %> checked="checked"<%End if%> value="Vue">Vue  
-                        <input type="checkbox" name="Skills" <% if s7=1 then %> checked="checked"<%End if%> value="Angular">Angular<br>  
+                        <input type="checkbox" name="Skills" <% if python=1 then %> checked="checked"<%End if%> value="Python">Python
+                        <input type="checkbox" name="Skills" <% if php=1 then %> checked="checked"<%End if%> value="PHP">PHP
+                        <input type="checkbox" name="Skills" <% if asp=1 then %> checked="checked"<%End if%> value="ASP">ASP
+                        <input type="checkbox" name="Skills" <% if react=1 then %> checked="checked"<%End if%> value="React">React <br>
+                        <input type="checkbox" name="Skills" <% if js=1 then %> checked="checked"<%End if%> value="Javascript">Javascript
+                        <input type="checkbox" name="Skills" <% if vue=1 then %> checked="checked"<%End if%> value="Vue">Vue  
+                        <input type="checkbox" name="Skills" <% if angular=1 then %> checked="checked"<%End if%> value="Angular">Angular<br>  
                     </div>
                 
                     <br>

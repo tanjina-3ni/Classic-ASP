@@ -42,15 +42,15 @@
         id=rs("ID")
         rs.close
         
-        v = Split(Request.Form("s"),", ")
+        skills = Split(Request.Form("skills"),", ")
 
         'response.write(s)
         'response.end()
 
-        for each x in v
+        for each skill in skills
             sql1="INSERT INTO skills (Skills,Emp_ID)"
             sql1=sql1 & " VALUES "
-            sql1=sql1 & "('" & x & "',"
+            sql1=sql1 & "('" & skill & "',"
             sql1=sql1 & "" & id & ")"
             on error resume next
             conn.Execute sql1,recaffected

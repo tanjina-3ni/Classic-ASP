@@ -92,13 +92,13 @@
                 
                     <div class="form-label"> 
                         <label class="col-md-4 control-label" ><b>Select Skills:</b></label>
-                        <input type="checkbox" id="s1" name="s" value="Python">Python
-                        <input type="checkbox" id="s2" name="s" value="PHP">PHP
-                        <input type="checkbox" id="s3" name="s" value="ASP">ASP
-                        <input type="checkbox" id="s4" name="s" value="React">React
-                        <input type="checkbox" id="s5" name="s" value="Javascript">Javascript <br>
-                        <input type="checkbox" id="s6" name="s" value="Vue">Vue  
-                        <input type="checkbox" id="s7" name="s" value="Angular">Angular<br>  
+                        <input type="checkbox" id="python" name="skills" value="Python">Python
+                        <input type="checkbox" id="php" name="skills" value="PHP">PHP
+                        <input type="checkbox" id="asp" name="skills" value="ASP">ASP
+                        <input type="checkbox" id="react" name="skills" value="React">React
+                        <input type="checkbox" id="js" name="skills" value="Javascript">Javascript <br>
+                        <input type="checkbox" id="vue" name="skills" value="Vue">Vue  
+                        <input type="checkbox" id="angular" name="skills" value="Angular">Angular<br>  
                     </div>
                     
                     <br>

@@ -27,7 +27,7 @@
     conn.Execute sql
     
 
-    v = Split(Request.Form("Skills"),", ")
+    skills = Split(Request.Form("Skills"),", ")
     
 
     sql1="DELETE * FROM skills"
@@ -35,10 +35,10 @@
     on error resume next
     conn.Execute sql1
 
-    for each x in v
+    for each skill in skills
         sql2="INSERT INTO skills (Skills,Emp_ID)"
         sql2=sql2 & " VALUES "
-        sql2=sql2 & "('" & x & "',"
+        sql2=sql2 & "('" & skill & "',"
         sql2=sql2 & "" & id & ")"
         on error resume next
         conn.Execute sql2

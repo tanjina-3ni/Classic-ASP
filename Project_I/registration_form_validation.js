@@ -38,15 +38,15 @@ function validateForm() {
     }
 
     
-    var s1 = document.getElementById("s1");
-    var s2 = document.getElementById("s2");
-    var s3 = document.getElementById("s3");
-    var s4 = document.getElementById("s4");
-    var s5 = document.getElementById("s5");
-    var s6 = document.getElementById("s6");
-    var s7 = document.getElementById("s7");
+    var python = document.getElementById("python");
+    var php = document.getElementById("php");
+    var asp = document.getElementById("asp");
+    var react = document.getElementById("react");
+    var js = document.getElementById("js");
+    var vue = document.getElementById("vue");
+    var angular = document.getElementById("angular");
 
-    if (s1.checked == false && s2.checked == false && s3.checked == false && s4.checked == false && s5.checked == false && s6.checked == false && s7.checked == false) {
+    if (python.checked == false && php.checked == false && asp.checked == false && react.checked == false && js.checked == false && vue.checked == false && angular.checked == false) {
       alert("Select atleast one skill")
       return false;
     }
