@@ -21,7 +21,6 @@
         set conn=Server.CreateObject("ADODB.Connection")
         conn.Provider="Microsoft.ACE.OLEDB.12.0"
         conn.Open "C:\inetpub\wwwroot\Project_I\Employee.mdb"
-        'conn.Open "Employee.mdb"
 
         set rs=Server.CreateObject("ADODB.recordset")
         sql = "SELECT ID, fname +' '+ lname as name, Email, DOB, Gender FROM EMP ORDER BY ID"
