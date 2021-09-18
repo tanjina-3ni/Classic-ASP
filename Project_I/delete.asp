@@ -29,7 +29,8 @@
     if err<>0 then
         response.write("No Update permission!")
     else
-        Response.write(1)
+        response.write 1
+        
     end if
     conn.close
     %>

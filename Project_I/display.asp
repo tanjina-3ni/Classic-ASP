@@ -12,6 +12,8 @@
             padding-bottom: 15px;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="ajax.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
@@ -25,54 +27,6 @@
         sql = "SELECT ID, fname +' '+ lname as name, Email, DOB, Gender FROM EMP ORDER BY ID"
         rs.Open sql, Conn
     %>
-
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-        $('#searchButton').click(function() {
-            $.ajax({
-                    type: "POST",
-                    url: "search.asp",
-                    data:  $("#formID").serialize(),
-                    cache: false,
-                    dataType: "html",
-                    success: function(response){
-                        alert("Click ok to search");
-                        $('#searchDisplay').html(response.toString());
-                    },
-                    error: function(respose){
-                        alert(respose);
-                    },
-                });
-
-            return false;
-        });
-        });
-        
-    
-        function delete_row(id){
-            var el = this;
-            if (confirm("Are you sure you want to delete this entry?")) {
-                // AJAX Request
-                $.ajax({
-                    url: 'delete.asp?id='+id,
-                    type: 'GET',
-                    success: function(response){
-                        // Remove row from HTML Table
-                        $(el).closest('tr').css('background','tomato');
-                        $(el).closest('tr').fadeOut(800,function(){
-                        $(this).remove();
-                        });
-                        },
-                    error: function(respose){
-                        alert(respose);
-                    },
-                    });
-                return false;
-            }
-        };
-    </script>
 
 
     <div class="card-body" >
@@ -98,11 +52,11 @@
             <tbody>
                 <%
                  do until rs.EOF
+
+                    id = rs("ID")
+                
                 %>
-                <tr style ="background: none;">
-                    <%
-                        id = rs("ID")
-                    %>
+                <tr style='background: whitesmoke;' id="<%Response.Write(id)%>">
                     <td><%Response.Write(id)%></td>
                     <td><%Response.Write(rs("name"))%></td>
                     <td><%Response.Write(rs("Email"))%></td>
@@ -120,19 +74,16 @@
              loop
              rs.close
              conn.close
-
             %>
-                        
-
-            
+                    
             </tbody>
         </table>
     
     </div>
-    
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     </body>
 </html>

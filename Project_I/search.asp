@@ -39,7 +39,7 @@
         's7=Request.QueryString("s7")
         
         'search Condition
-        sql = "SELECT * FROM EMP"
+        sql = "SELECT ID, fname +' '+ lname as name, Email, DOB, Gender FROM EMP"
         sqlWhere = ""
         if fName <> "" Then
             sqlWhere = " WHERE Instr( fname, '" & fName & "')"

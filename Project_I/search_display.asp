@@ -18,47 +18,42 @@
     
     
         <table class="table table-striped">
+            
             <thead>
                 <tr>
-                    <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>DOB</th>
-                        <th>Gender</th>
-                        <th>Website</th>
-                        <th>Action</th>
-                    </tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <%
-                 do until rs.EOF
+                do until rs.EOF
                 %>
                 <tr>
                     <%
-                     for each x in rs.Fields
-                        if x.name="ID" Then
-                            id = x.value
-                        end if
+                        id = rs("ID")
                     %>
-                        <td><%Response.Write(x.value)%></td>
+                    <td><%Response.Write(id)%></td>
+                    <td><%Response.Write(rs("name"))%></td>
+                    <td><%Response.Write(rs("Email"))%></td>
+                    <td><%Response.Write(rs("DOB"))%></td>
+                    <td><%Response.Write(rs("Gender"))%></td>
                     <%
-                     next
-                     rs.MoveNext
+                    rs.MoveNext
                     %>
-                    
-                        <td>
-                            <a href="editnew.asp?id=<%Response.Write(id)%>" class="btn btn-success" >Edit
-                            <a href="delete.asp?id=<%Response.Write(id)%>" class="btn btn-danger" >Delete
-                        </td>
+                    <td>
+                        <a href="editnew.asp?id=<%Response.Write(id)%>" class="btn btn-success" >Edit
+                        <a id="delete_button<%Response.Write(id)%>" class="btn btn-danger" onclick="delete_row('<%Response.Write(id)%>');">Delete
+                    </td>
                 </tr>
             <%
-             loop
-             rs.close
-             conn.close
+            loop
+            rs.close
+            conn.close
 
             %>
                         
