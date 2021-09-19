@@ -1,16 +1,15 @@
 function validateForm() {
+    msg = ""
     let fname = document.forms["Reg"]["firstname"].value;
     if (fname == "") {
-      alert("Name must be filled out")
-      return false;
+      msg = msg + "Enter Name\n";
     }
 
     let Email = document.forms["Reg"]["email"].value;
     var atposition = Email.indexOf("@");  
     var dotposition = Email.lastIndexOf(".");  
     if (atposition<1 || dotposition<atposition+2 || dotposition+2>= Email.length){  
-        alert("Please enter a valid e-mail address");  
-        return false;  
+      msg = msg + "Enter a valid e-mail address\n";    
     } 
 
     let Phone = document.forms["Reg"]["telephone"].value;
@@ -19,22 +18,19 @@ function validateForm() {
       Phone=Phone
     else
       {
-      alert("Enter valid number");  
-      return false;  
+      msg = msg + "Enter valid number\n";   
       }
 
     let DoB = document.forms["Reg"]["Birthdate"].value;
     
     if(isNaN(Date.parse(DoB))){
-      alert('Enter birth date');
-      return false;
+      msg = msg + "Enter birth date\n";
     }
     
     let gender = document.forms["Reg"]["gender"].value;
     
     if (gender=="") {
-      alert("Select Gender")
-      return false;
+      msg = msg + "Select Gender\n";
     }
 
     
@@ -47,9 +43,12 @@ function validateForm() {
     var angular = document.getElementById("angular");
 
     if (python.checked == false && php.checked == false && asp.checked == false && react.checked == false && js.checked == false && vue.checked == false && angular.checked == false) {
-      alert("Select atleast one skill")
-      return false;
+      msg = msg + "Select atleast one skill";
     }
     
+    if (msg!="") {
+      alert(msg);
+      return false;
+    }
     
   }
