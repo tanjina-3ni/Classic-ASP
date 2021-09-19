@@ -1,3 +1,4 @@
+// SEARCH
 $(document).ready(function(){
     $('#searchButton').click(function() {
         $.ajax({
@@ -19,11 +20,9 @@ $(document).ready(function(){
     });
 });
     
-
+// DELETE
 function delete_row(id){
-    
     if (confirm("Are you sure you want to delete this entry?")) {
-        var el = this;
         // AJAX Request
         $.ajax({
             url: 'delete.asp?id='+id,

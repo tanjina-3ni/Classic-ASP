@@ -42,48 +42,95 @@
         sql = "SELECT ID, fname +' '+ lname as name, Email, DOB, Gender FROM EMP"
         sqlWhere = ""
         if fName <> "" Then
-            sqlWhere = " WHERE Instr( fname, '" & fName & "')"
+            sqlWhere = " Instr( fname, '" & fName & "')"
         end if
         
         if gender <> "" Then
-            if sqlWhere = "" Then
-                sqlWhere = " WHERE Gender='" & gender & "'"
-            else 
-                sqlWhere = sqlWhere & " AND Gender='" & gender & "'"
+            if sqlWhere <> "" Then
+                sqlWhere = sqlWhere & " AND"
             end if
-            'Response.write sql
+            sqlWhere = sqlWhere & " Gender='" & gender & "'"
         end if
 
         if dfrom<>"" Then
-            if sqlWhere = "" Then
-                sqlWhere = " WHERE DOB>=#"& dfrom &"#"
-            else 
-                sqlWhere = sqlWhere & " AND DOB>=#"& dfrom &"#"
+            if sqlWhere <> "" Then
+                sqlWhere = sqlWhere & " AND"
             end if
+            sqlWhere = sqlWhere & " DOB>=#"& dfrom &"#"
         end if
 
         if dto<>"" Then
-            if sqlWhere = "" Then
-                sqlWhere = " WHERE DOB<=#"& dto &"#"
-            else
-                sqlWhere = sqlWhere & " AND DOB<=#"& dto &"#"
+            if sqlWhere <> "" Then
+                sqlWhere = sqlWhere & " AND"
             end if
+            sqlWhere = sqlWhere & " DOB<=#"& dto &"#"
+           
         end if
 
         'skills search logic
         if python<>"" OR php<>"" OR asp<>"" OR vue<>"" OR js<>"" OR react<>"" OR angular<>"" Then
-            if sqlWhere = "" Then
-                sqlWhere = " WHERE ID IN(SELECT Emp_ID FROM skills WHERE"
-                sqlWhere = sqlWhere & " Skills IN ('" & python & "', '" & php & "', '" & asp & "', '" & vue & "', '" & js & "', '" & react & "', '" & angular & "'))"
-            else
-                sqlWhere = sqlWhere & " AND ID IN(SELECT Emp_ID FROM skills WHERE"
-                sqlWhere = sqlWhere & " Skills IN ('" & python & "', '" & php & "', '" & asp & "', '" & vue & "', '" & js & "', '" & react & "', '" & angular & "'))"
+            if sqlWhere <> "" Then
+                sqlWhere = sqlWhere & " AND"
             end if
+            sqlWhere = sqlWhere &  " ID IN(SELECT Emp_ID FROM skills WHERE Skills IN ("    
+            sqlSkillsWhere = ""
+            if python<>"" Then
+                sqlSkillsWhere = "'" & python & "'"
+            end if
+
+            if php<>"" Then
+                if sqlSkillsWhere <> "" Then
+                    sqlSkillsWhere = sqlSkillsWhere & ","
+                end if
+                sqlSkillsWhere = sqlSkillsWhere & "'" & php & "'"
+            end if
+
+            if asp<>"" Then
+                if sqlSkillsWhere <> "" Then
+                    sqlSkillsWhere = sqlSkillsWhere & ","
+                end if
+                sqlSkillsWhere = sqlSkillsWhere & "'" & asp & "'"
+            end if
+
+            if vue<>"" Then
+                if sqlSkillsWhere <> "" Then
+                    sqlSkillsWhere = sqlSkillsWhere & ","
+                end if
+                sqlSkillsWhere = sqlSkillsWhere & "'" & vue & "'"
+            end if
+
+            if js<>"" Then
+                if sqlSkillsWhere <> "" Then
+                    sqlSkillsWhere = sqlSkillsWhere & ","
+                end if
+                sqlSkillsWhere = sqlSkillsWhere & "'" & js & "'"
+            end if
+
+            if react<>"" Then
+                if sqlSkillsWhere <> "" Then
+                    sqlSkillsWhere = sqlSkillsWhere & ","
+                end if
+                sqlSkillsWhere = sqlSkillsWhere & "'" & react & "'"
+            end if
+
+            if angular<>"" Then
+                if sqlSkillsWhere <> "" Then
+                    sqlSkillsWhere = sqlSkillsWhere & ","
+                end if
+                sqlSkillsWhere = sqlSkillsWhere & "'" & angular & "'"
+            end if
+
+            sqlWhere = sqlWhere & sqlSkillsWhere & "))"
+                
         end if
         
+        
+        if sqlWhere <> "" Then
+            sqlWhere = " WHERE" & sqlWhere
+        end if 
+        sql = sql & sqlWhere
         'response.write sql
         'response.end
-        sql = sql & sqlWhere
         set rs=Server.CreateObject("ADODB.Recordset")
         rs.Open sql, Conn
         

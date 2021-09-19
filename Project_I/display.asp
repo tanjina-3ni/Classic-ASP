@@ -55,7 +55,7 @@
                     id = rs("ID")
                 
                 %>
-                <tr style='background: whitesmoke;' id="<%Response.Write(id)%>">
+                <tr style='background: none;' id="<%Response.Write(id)%>">
                     <td><%Response.Write(id)%></td>
                     <td><%Response.Write(rs("name"))%></td>
                     <td><%Response.Write(rs("Email"))%></td>
