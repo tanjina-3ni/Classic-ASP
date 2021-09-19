@@ -36,6 +36,12 @@
         <!--#include file="navbar.asp"-->
         
 
+        <%
+        for each x in rs
+            response.write rs
+        next
+        response.end
+        %>
 
         <table class="table table-striped" id="searchDisplay">
             <thead>

@@ -1,4 +1,53 @@
 <%
+    ' server side validation
+    fname = Request.Form("firstname")
+    lname = Request.Form("lastname")
+    email = Request.Form("email")
+    phone = Request.Form("telephone")
+    DOB = Request.Form("Birthdate")
+    gender = Request.Form("gender")
+    web = Request.Form("website")
+    skills = Request.Form("skills")
+
+    msg = ""
+    if fname="" Then
+        msg = msg + "Enter Name<br>"
+    end if
+
+    set regEx = New RegExp
+    regEx.Pattern = "^[-+.\w]{1,64}@[-.\w]{1,64}\.[-.\w]{2,6}$"
+    isValidE = regEx.Test(email)
+    if isValidE="False" Then
+        msg = msg + "Enter a valid e-mail address<br>"
+    end if
+
+    set rgEx = New RegExp
+    rgEx.Pattern = "\b[0-9]{11}\b"
+    isValidP = rgEx.Test(phone)
+    if isValidP="False" Then
+        msg = msg + "Enter valid number<br>"
+    end if
+    
+
+    if IsDate(DOB)="False" Then
+        msg = msg + "Enter birth date<br>"
+    end if
+
+    if gender="" Then
+        msg = msg + "Select Gender<br>"
+    end if
+
+    if skills="" Then
+        msg = msg + "Select atleast one skill<br>"
+    end if
+
+    if msg<>"" Then 
+        response.write(msg)
+        response.end
+    end if
+
+
+    ' connect to the database
     set conn=Server.CreateObject("ADODB.Connection")
     conn.Provider="Microsoft.Jet.OLEDB.4.0"
     conn.Open "C:\inetpub\wwwroot\Project_I\Employee.mdb"
@@ -15,13 +64,13 @@
     sql="INSERT INTO EMP (Fname,Lname,"
     sql=sql & "Email,Phone,DOB,Gender,Website)"
     sql=sql & " VALUES "
-    sql=sql & "('" & Request.Form("firstname") & "',"
-    sql=sql & "'" & Request.Form("lastname") & "',"
-    sql=sql & "'" & Request.Form("email") & "',"
-    sql=sql & "'" & Request.Form("telephone") & "',"
-    sql=sql & "'" & Request.Form("Birthdate") & "',"
-    sql=sql & "'" & Request.Form("gender") & "',"
-    sql=sql & "'" & Request.Form("website") & "')"
+    sql=sql & "('" & fname & "',"
+    sql=sql & "'" & lname & "',"
+    sql=sql & "'" & email & "',"
+    sql=sql & "'" & phone & "',"
+    sql=sql & "'" & DOB & "',"
+    sql=sql & "'" & gender & "',"
+    sql=sql & "'" & web & "')"
     'sql=sql & "'" & Request.Form("resume") & "')"
 
     on error resume next
@@ -33,12 +82,10 @@
     
     id=rs("ID")
     rs.close
-    
-    skills = Split(Request.Form("skills"),", ")
 
     'response.write(s)
     'response.end()
-
+    skills = Split(skills,", ")
     for each skill in skills
         sql1="INSERT INTO skills (Skills,Emp_ID)"
         sql1=sql1 & " VALUES "
