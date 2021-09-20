@@ -13,11 +13,9 @@
     <tbody>
         <%
         do until rs.EOF
+            id = rs("ID")
         %>
-        <tr>
-            <%
-                id = rs("ID")
-            %>
+        <tr style='background: none;' id="<%=(id)%>">
             <td><%Response.Write(id)%></td>
             <td><%Response.Write(rs("name"))%></td>
             <td><%Response.Write(rs("Email"))%></td>

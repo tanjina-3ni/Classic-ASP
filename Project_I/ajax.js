@@ -27,7 +27,6 @@ function delete_row(id){
         $.ajax({
             url: 'delete.asp?id='+id,
             cache:false,
-            dataType: "text",
             success: function(response){
                 // Remove row from HTML Table
                 $("#"+id).css('background','tomato');

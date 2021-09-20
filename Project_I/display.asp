@@ -67,15 +67,15 @@
                         id = data(0, row)
                 
                 %>
-                <tr style='background: none;' id="<%Response.Write(id)%>">
-                    <td><%Response.Write(data(0, row))%></td>
-                    <td><%Response.Write(data(1, row))%></td>
-                    <td><%Response.Write(data(2, row))%></td>
-                    <td><%Response.Write(data(3, row))%></td>
-                    <td><%Response.Write(data(4, row))%></td>
+                <tr style='background: none;' id="<%=(id)%>">
+                    <td><%=(data(0, row))%></td>
+                    <td><%=(data(1, row))%></td>
+                    <td><%=(data(2, row))%></td>
+                    <td><%=(data(3, row))%></td>
+                    <td><%=(data(4, row))%></td>
                     <td>
-                        <a href="editnew.asp?id=<%Response.Write(id)%>" class="btn btn-success" >Edit
-                        <a id="delete_button<%Response.Write(id)%>" class="btn btn-danger" onclick="delete_row('<%Response.Write(id)%>');">Delete
+                        <a href="editnew.asp?id=<%=(id)%>" class="btn btn-success" >Edit
+                        <a id="delete_button<%=(id)%>" class="btn btn-danger" onclick="delete_row('<%=(id)%>');">Delete
                     </td>
                 </tr>
                 <%
