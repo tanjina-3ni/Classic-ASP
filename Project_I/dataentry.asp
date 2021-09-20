@@ -59,12 +59,18 @@
     'response.write(TypeName(v))
     'response.end()
 
+    set rs=Server.CreateObject("ADODB.recordset")
+    rs.Open "SELECT MAX(ID) as id FROM signup", conn 'WHERE Email='" & Request.Form("Email") & "'", conn
+    
+    id=rs("ID")
+    rs.close
     
 
-    sql="INSERT INTO EMP (Fname,Lname,"
+    sql="INSERT INTO EMP (ID,Fname,Lname,"
     sql=sql & "Email,Phone,DOB,Gender,Website)"
     sql=sql & " VALUES "
-    sql=sql & "('" & fname & "',"
+    sql=sql & "('" & id & "',"
+    sql=sql & "'" & fname & "',"
     sql=sql & "'" & lname & "',"
     sql=sql & "'" & email & "',"
     sql=sql & "'" & phone & "',"
@@ -72,16 +78,11 @@
     sql=sql & "'" & gender & "',"
     sql=sql & "'" & web & "')"
     'sql=sql & "'" & Request.Form("resume") & "')"
-
     on error resume next
     conn.Execute sql,recaffected
 
 
-    set rs=Server.CreateObject("ADODB.recordset")
-    rs.Open "SELECT MAX(ID) as id FROM EMP", conn 'WHERE Email='" & Request.Form("Email") & "'", conn
     
-    id=rs("ID")
-    rs.close
 
     'response.write(s)
     'response.end()

@@ -14,7 +14,7 @@
     
     <div class="login_form_wrapper">
         <div class="title_container">
-            <h2>Login Form</h2>
+            <h3>Login Form</h3>
         </div>
 
         <form method="post" action="check.asp">

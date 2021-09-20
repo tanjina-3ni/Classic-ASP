@@ -11,22 +11,29 @@
 
 </head>
 <body>
-    <form method="post" action="registration.asp">
-        <div class="form-label">
-            <label class="col-md-4 control-label" ><strong>User Name:</strong></label>  
-            <input type="text" name="uname" placeholder="User Name" required><br> 
-        
+    <div class="login_form_wrapper">
+        <div class="title_container">
+            <h3>Registration Form</h3>
         </div>
-        <br>
-        <div class="form-label">
-            <label class="col-md-4 control-label" ><strong>Password:</strong></label>  
-            <input type="text" name="password" placeholder="Password" required><br> 
+
+        <form method="post" action="signupEntry.asp">
+            <div class="form-label">
+                <label class="col-md-4 control-label" ><strong>User Name:</strong></label>  
+                <input type="text" name="uname" placeholder="User Name" required><br> 
+            
+            </div>
+            <br>
+            <div class="form-label">
+                <label class="col-md-4 control-label" ><strong>Password:</strong></label>  
+                <input type="text" name="password" placeholder="Password" required><br> 
+            
+            </div>
+            <br>
+            <div>
+                <input type="submit" class="btn btn-success" value="Confirm">
+        </form>
         
-        </div>
-        <br>
-        <div>
-            <input type="submit" class="btn btn-success" value="Confirm">
-    </form>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
