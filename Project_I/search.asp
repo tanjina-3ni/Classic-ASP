@@ -32,7 +32,7 @@
     sql = "SELECT ID, fname +' '+ lname as name, Email, DOB, Gender FROM EMP"
     sqlWhere = ""
     if fName <> "" Then
-        sqlWhere = " Instr( fname, '" & fName & "') OR Instr( lname, '" & fName & "')"
+        sqlWhere = " Instr( fname, '" & fName & "')"
     end if
     
     if gender <> "" Then

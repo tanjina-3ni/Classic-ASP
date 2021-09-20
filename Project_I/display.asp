@@ -25,6 +25,7 @@
         set rs=Server.CreateObject("ADODB.recordset")
         sql = "SELECT ID, fname +' '+ lname as name, Email, DOB, Gender FROM EMP ORDER BY ID"
         rs.Open sql, Conn
+        
     %>
 
 
@@ -50,30 +51,39 @@
             </thead>
             <tbody>
                 <%
-                 do until rs.EOF
+                If Not rs.EOF Then 
+                    data = rs.GetRows()
+                end if
 
-                    id = rs("ID")
+                Dim row, rows
+
+                If IsArray(data) Then
+                'Test data (2d Array, 0 = column, 1 = row)
+                'Retrieving all rows
+                    rows = UBound(data, 2)
+                    For row = 0 To rows
+                        'First column from each row.
+                        'Call WScript.Echo(data(0, row))
+                        id = data(0, row)
                 
                 %>
                 <tr style='background: none;' id="<%Response.Write(id)%>">
-                    <td><%Response.Write(id)%></td>
-                    <td><%Response.Write(rs("name"))%></td>
-                    <td><%Response.Write(rs("Email"))%></td>
-                    <td><%Response.Write(rs("DOB"))%></td>
-                    <td><%Response.Write(rs("Gender"))%></td>
-                    <%
-                     rs.MoveNext
-                    %>
+                    <td><%Response.Write(data(0, row))%></td>
+                    <td><%Response.Write(data(1, row))%></td>
+                    <td><%Response.Write(data(2, row))%></td>
+                    <td><%Response.Write(data(3, row))%></td>
+                    <td><%Response.Write(data(4, row))%></td>
                     <td>
                         <a href="editnew.asp?id=<%Response.Write(id)%>" class="btn btn-success" >Edit
                         <a id="delete_button<%Response.Write(id)%>" class="btn btn-danger" onclick="delete_row('<%Response.Write(id)%>');">Delete
                     </td>
                 </tr>
-            <%
-             loop
-             rs.close
-             conn.close
-            %>
+                <%
+                    Next
+                End If
+                rs.close
+                conn.close
+                %>
                     
             </tbody>
         </table>
