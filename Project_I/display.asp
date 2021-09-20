@@ -23,7 +23,6 @@
         
     %>
 
-
     <div class="card-body" >
         <div class="title_container">
             <h3>All Records</h3>

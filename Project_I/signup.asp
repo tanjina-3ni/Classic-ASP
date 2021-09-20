@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -11,36 +11,23 @@
 
 </head>
 <body>
-    
-    <div class="login_form_wrapper">
-        <div class="title_container">
-            <h2>Login Form</h2>
-        </div>
-
-        <form method="post" action="check.asp">
-            <div class="form-label">
-                <label class="col-md-4 control-label" ><strong>Email:</strong></label>  
-                <input type="text" name="email" placeholder="Email" required><br> 
-            
-            </div>
-            <br>
-            <div class="form-label">
-                <label class="col-md-4 control-label" ><strong>Password:</strong></label>  
-                <input type="text" name="password" placeholder="Password" required><br> 
-            
-            </div>
-            <br>
-            <div>
-                <input type="submit" class="btn btn-success" value="Sign in">
-        </form>
+    <form method="post" action="registration.asp">
+        <div class="form-label">
+            <label class="col-md-4 control-label" ><strong>User Name:</strong></label>  
+            <input type="text" name="uname" placeholder="User Name" required><br> 
         
-        <form method="post" action="signup.asp">
-            <br>
-            <div>
-                <input type="submit" class="button" value="Sign Up">
-            </div>
-        </form>
-    </div>
+        </div>
+        <br>
+        <div class="form-label">
+            <label class="col-md-4 control-label" ><strong>Password:</strong></label>  
+            <input type="text" name="password" placeholder="Password" required><br> 
+        
+        </div>
+        <br>
+        <div>
+            <input type="submit" class="btn btn-success" value="Confirm">
+    </form>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>

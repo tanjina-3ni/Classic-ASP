@@ -24,8 +24,8 @@
 
 .login_form_wrapper {
     text-align: center;
-    width: 400px;
-    max-width: 100%;
+    width: 25%;
+    max-width: 80%;
     box-sizing: border-box;
     padding: 5px;
     margin: auto;
@@ -37,6 +37,7 @@
     border-style: solid;
     background-color: rgb(157, 208, 228);
 }
+
 .button {
     background-color: rgba(206, 255, 253, 0.966);
     color: black;
@@ -50,18 +51,21 @@
     overflow: auto;
     color: white;
     }
+
 .part1 {
     width:40%;
     height: 50%;
     float: left;
     padding: 1px;
 }
+
 .part2 {
     width:42%;
     height: 50%;
     float: right;
     padding: 1px;
 }
+
 .content{
     width: 100%;
     position: relative;
