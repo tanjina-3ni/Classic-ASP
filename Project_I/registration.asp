@@ -3,31 +3,7 @@
 <head>
     <title>Registration</title>
 
-    <style>
-        .myDiv {    
-            text-align: center;}
-
-        .form_wrapper {
-            width: 460px;
-            max-width: 100%;
-            box-sizing: border-box;
-            margin: auto;
-            margin-top: 5%;
-            margin-bottom: 5%;
-            position: relative;
-            border:cadetblue;
-            border-style: solid;
-            background-color:rgb(157, 208, 228);
-            width: 40%;
-            padding: 15px;
-        }
-
-        .title_container {
-            text-align: center;
-            padding-bottom: 15px;
-        }
-            
-    </style>
+    <link rel="stylesheet" href="style.css">
 
     <script type="text/javascript" src="registration_form_validation.js"></script> 
 

@@ -1,36 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <style>
-        /* Style the navigation bar */
-        .navbar {
-        width: 100%;
-        background-color:RGB(1, 88, 88);
-        overflow: auto;
-        color: white;
-        }
-        .part1 {
-            width:40%;
-            height: 50%;
-            float: left;
-            padding: 1px;
-        }
-        .part2 {
-            width:42%;
-            height: 50%;
-            float: right;
-            padding: 1px;
-        }
-        .content{
-        width: 100%;
-        position: relative;
-        }
-
-        .button {
-        background-color: rgba(206, 255, 253, 0.966);
-        color: black;
-        border: 2px solid #08a799;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

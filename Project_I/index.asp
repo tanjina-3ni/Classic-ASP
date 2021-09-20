@@ -5,39 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    <style>
-        .title_container {
-        text-align: center;
-        padding-bottom: 15px;
-        }
-        .form_wrapper {
-        text-align: center;
-        width: 400px;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding: 5px;
-        margin: auto;
-        margin-top: 10%;
-        margin-bottom: 10%;
-        position: relative;
-        border: 4px;
-        border-color: cadetblue;
-        border-style: solid;
-        background-color: rgb(157, 208, 228);
-        }
-        .button {
-        background-color: rgba(206, 255, 253, 0.966);
-        color: black;
-        border: 2px solid #08a799;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 </head>
 <body>
     
-    <div class="form_wrapper">
+    <div class="login_form_wrapper">
         <div class="title_container">
             <h2>Login Form</h2>
         </div>

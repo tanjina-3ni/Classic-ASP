@@ -1,0 +1,68 @@
+.myDiv {    
+    text-align: center;
+}
+
+.form_wrapper {
+    width: 460px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    position: relative;
+    border:cadetblue;
+    border-style: solid;
+    background-color:rgb(157, 208, 228);
+    width: 40%;
+    padding: 15px;
+}
+
+.title_container {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.login_form_wrapper {
+    text-align: center;
+    width: 400px;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    position: relative;
+    border: 4px;
+    border-color: cadetblue;
+    border-style: solid;
+    background-color: rgb(157, 208, 228);
+}
+.button {
+    background-color: rgba(206, 255, 253, 0.966);
+    color: black;
+    border: 2px solid #08a799;
+}
+
+/* Style the navigation bar */
+.navbar {
+    width: 100%;
+    background-color:RGB(1, 88, 88);
+    overflow: auto;
+    color: white;
+    }
+.part1 {
+    width:40%;
+    height: 50%;
+    float: left;
+    padding: 1px;
+}
+.part2 {
+    width:42%;
+    height: 50%;
+    float: right;
+    padding: 1px;
+}
+.content{
+    width: 100%;
+    position: relative;
+}
