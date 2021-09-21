@@ -13,9 +13,10 @@
         response.Redirect 'index.asp'
 
     'If not blank Username password submitted
-    elseif uname <> "" or pass <> "" then
-        sql="SELECT * from signup where uname='" & uname & "'and [password]='" & pass & "'"
-
+    elseif uname <> "" and pass <> "" then
+        sql="SELECT * from signup where uname='" & uname & "'"
+        'Response.write sql
+        'response.end
         on error resume next
         set rs=Conn.execute(sql)
         
@@ -23,7 +24,9 @@
 
         'If no records retrieved
         if rs.BOF and rs.EOF then
-		    Response.Redirect "index.asp?uname=" & uname
+            Response.Redirect "index.asp?uname=" & uname
+        elseif rs("password")<>pass Then
+            Response.Redirect "index.asp?pass=" & pass
         else 
             'If remember me selected
             if RememberMe = "ON" then
@@ -42,9 +45,6 @@
         end if
         conn.close
         rs.close
-    else
-        'Invalid User
-        Response.Redirect "index.asp?uname=blank"
     end if
 %>
 

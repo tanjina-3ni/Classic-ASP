@@ -17,6 +17,9 @@
     Dim uname
     'Retrieving Username
     uname=Request.QueryString("uname")
+    pass=Request.QueryString("pass")
+
+    
     %>
 
 
@@ -39,12 +42,23 @@
             </div>
             <br>
             <div> 
-                <%'Invalid Username password
+                <% 'Invalid Username password
                 if uname <> "" then %>
                     <p align="center"><font face="Verdana">
-                    </font><font size="2" color="red">Invalid User Name/ Password</font></font></p>
-                    
-                <% end if%>
+                    </font><font size="2" color="red">Invalid User Name</font></font></p>
+            
+                <% elseif pass<> "" Then %>
+                    <p align="center"><font face="Verdana">
+                    </font><font size="2" color="red">Invalid Password</font></font></p>
+            
+                <% else %>
+                    <p align="center"><font face="Verdana">
+                    </font><font size="2" color="red"></font></font></p>
+            
+                <% end if
+                %>
+                
+                
                 <p align="center"><font face="Verdana"><font color="#FFFFFF">
                 <input type="checkbox" name="rememberme" value="ON"></font><font size="2" color="black">Remember 
                     Me</font></font></p>

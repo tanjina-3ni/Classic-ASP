@@ -10,7 +10,7 @@
             <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
             <div class="dropdown-content">
             <a href="#">Update Password</a>
-            <a href="index.asp">Sign Out</a>
+            <a href="signOut.asp">Sign Out</a>
             </div>
           </div>
         
