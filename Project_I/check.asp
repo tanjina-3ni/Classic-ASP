@@ -23,7 +23,7 @@
 
         'If no records retrieved
         if rs.BOF and rs.EOF then
-		    Response.Redirect "index.asp"
+		    Response.Redirect "index.asp?uname=" & uname
         else 
             'If remember me selected
             if RememberMe = "ON" then
@@ -44,7 +44,7 @@
         rs.close
     else
         'Invalid User
-        Response.Redirect "index.asp"
+        Response.Redirect "index.asp?uname=blank"
     end if
 %>
 

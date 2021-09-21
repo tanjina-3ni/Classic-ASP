@@ -11,6 +11,15 @@
 
 </head>
 <body>
+
+    <%
+    'StudentNo Of Logged in user
+    Dim uname
+    'Retrieving Username
+    uname=Request.QueryString("uname")
+    %>
+
+
     <div class="login_form_wrapper">
         <div class="title_container">
             <h3>Login Form</h3>
@@ -29,7 +38,13 @@
             
             </div>
             <br>
-            <div>
+            <div> 
+                <%'Invalid Username password
+                if uname <> "" then %>
+                    <p align="center"><font face="Verdana">
+                    </font><font size="2" color="red">Invalid User Name/ Password</font></font></p>
+                    
+                <% end if%>
                 <p align="center"><font face="Verdana"><font color="#FFFFFF">
                 <input type="checkbox" name="rememberme" value="ON"></font><font size="2" color="black">Remember 
                     Me</font></font></p>
