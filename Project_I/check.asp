@@ -28,17 +28,18 @@
         elseif rs("password")<>pass Then
             Response.Redirect "index.asp?pass=" & pass
         else 
+            Session("username")=uname
             'If remember me selected
             if RememberMe = "ON" then
                 'Writing cookies permanently
-                Response.Cookies("uname")=uname
+                Response.Cookies("username")=uname
                 Response.Cookies("password")=pass
-                Response.Cookies("uname").Expires = Now() + 365
+                Response.Cookies("username").Expires = Now() + 365
                 Response.Cookies("password").Expires = Now() + 365
                 Response.Redirect "display.asp"
             else
                 'writing cookies temporarily
-                Response.Cookies("uname")=uname
+                Response.Cookies("username")=uname
                 Response.Cookies("password")=pass
                 Response.Redirect "display.asp"
             end if

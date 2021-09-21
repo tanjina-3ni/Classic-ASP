@@ -10,7 +10,7 @@
             <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
             <div class="dropdown-content">
             <a href="#">Update Password</a>
-            <a href="signOut.asp">Sign Out</a>
+            <a href="signOut.asp" onclick="return signOut()">Sign Out</a>
             </div>
           </div>
         
@@ -60,5 +60,11 @@
         </div>
             
     </nav>
+
+    <script>
+    function signOut() {
+        alert("Signed out")
+    }
+    </script>
 </body>
 </html>

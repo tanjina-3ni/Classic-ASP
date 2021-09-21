@@ -12,22 +12,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
-    <%
-        set conn=Server.CreateObject("ADODB.Connection")
-        conn.Provider="Microsoft.ACE.OLEDB.12.0"
-        conn.Open "C:\inetpub\wwwroot\Project_I\Employee.mdb"
-
-        set rs=Server.CreateObject("ADODB.recordset")
-        sql = "SELECT ID, fname +' '+ lname as name, Email, DOB, Gender FROM EMP ORDER BY ID"
-        rs.Open sql, Conn
-        
-    %>
+    
 
     <div class="card-body" >
         <div class="title_container">
             <h3>All Records</h3>
         </div>
         <!--#include file="navbar.asp"-->
+        <%
+        <!--#include file ="session.asp"-->
+        %>
+        <p>Welcome <%Response.Write(Session("username"))%></p> 
         
 
 
@@ -44,6 +39,13 @@
             </thead>
             <tbody>
                 <%
+                set conn=Server.CreateObject("ADODB.Connection")
+                conn.Provider="Microsoft.ACE.OLEDB.12.0"
+                conn.Open "C:\inetpub\wwwroot\Project_I\Employee.mdb"
+
+                set rs=Server.CreateObject("ADODB.recordset")
+                sql = "SELECT ID, fname +' '+ lname as name, Email, DOB, Gender FROM EMP ORDER BY ID"
+                rs.Open sql, Conn
                 If Not rs.EOF Then 
                     data = rs.GetRows()
                 end if
