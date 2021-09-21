@@ -18,13 +18,13 @@
 
         <form method="post" action="signupEntry.asp">
             <div class="form-label">
-                <label class="col-md-4 control-label" ><strong>User Name:</strong></label>  
+                <label class="col-md-4 control-label" ><strong>User Name</strong></label>  
                 <input type="text" name="uname" placeholder="User Name" required><br> 
             
             </div>
             <br>
             <div class="form-label">
-                <label class="col-md-4 control-label" ><strong>Password:</strong></label>  
+                <label class="col-md-4 control-label" ><strong>Password</strong></label>  
                 <input type="text" name="password" placeholder="Password" required><br> 
             
             </div>

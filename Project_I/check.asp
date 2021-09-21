@@ -3,15 +3,48 @@
     conn.Provider="Microsoft.Jet.OLEDB.4.0"
     conn.Open "C:\inetpub\wwwroot\Project_I\Employee.mdb"
 
-    dim email, pass
-    email=Request.form("Email")
+    
+    uname=Request.form("uname")
     pass=Request.form("password")
 
-    sql="SELECT * from EMP where Email='" & email& "'and [Password]='" & pass & "'"
 
-    on error resume next
-    conn.Execute sql,recaffected
+    if uname="" or pass="" Then
+        response.End
+        response.Redirect 'index.asp'
 
-    conn.close
+    'If not blank Username password submitted
+    elseif uname <> "" or pass <> "" then
+        sql="SELECT * from signup where uname='" & uname & "'and [password]='" & pass & "'"
 
+        on error resume next
+        set rs=Conn.execute(sql)
+        
+        'response.write sql
+
+        'If no records retrieved
+        if rs.BOF and rs.EOF then
+		    Response.Redirect "index.asp"
+        else 
+            'If remember me selected
+            if RememberMe = "ON" then
+                'Writing cookies permanently
+                Response.Cookies("uname")=uname
+                Response.Cookies("password")=pass
+                Response.Cookies("uname").Expires = Now() + 365
+                Response.Cookies("password").Expires = Now() + 365
+                Response.Redirect "display.asp"
+            else
+                'writing cookies temporarily
+                Response.Cookies("uname")=uname
+                Response.Cookies("password")=pass
+                Response.Redirect "display.asp"
+            end if
+        end if
+        conn.close
+        rs.close
+    else
+        'Invalid User
+        Response.Redirect "index.asp"
+    end if
 %>
+

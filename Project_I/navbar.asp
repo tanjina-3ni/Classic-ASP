@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <nav class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            <div class="dropdown-content">
+            <a href="#">Update Password</a>
+            <a href="index.asp">Sign Out</a>
+            </div>
+          </div>
+        
         <div class="content" id="search">
             <form name="searchForm" method="POST" id="formID">
                 <div class='part1'>
@@ -18,7 +26,7 @@
                     <label><strong>Date:</strong></label>  
                     &nbsp;
                     <input type="date" id="fromperiod" name="from" placeholder="dd-mm-yyyy">
-                    <label for="toperiod">to</label> 
+                    <label for="toperiod">to</label>
                     <input type="date" id="toperiod" name="to" placeholder="dd-mm-yyyy">
                 </div>
                 
@@ -50,6 +58,7 @@
                 </div> 
             </form>
         </div>
+            
     </nav>
 </body>
 </html>

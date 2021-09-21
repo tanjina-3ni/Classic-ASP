@@ -15,7 +15,7 @@
         <div class="myDiv">
             
             <div class="title_container">
-                <h2>Registration Form</h2> 
+                <h2>Other Info</h2> 
             </div><br>
             <div class="mb-3 row">
                 <form name="Reg" method="post" action="dataentry.asp" onsubmit="return validateForm()">

@@ -11,7 +11,6 @@
 
 </head>
 <body>
-    
     <div class="login_form_wrapper">
         <div class="title_container">
             <h3>Login Form</h3>
@@ -19,18 +18,21 @@
 
         <form method="post" action="check.asp">
             <div class="form-label">
-                <label class="col-md-4 control-label" ><strong>Email:</strong></label>  
-                <input type="text" name="email" placeholder="Email" required><br> 
+                <label class="col-md-4 control-label" ><strong>User Name</strong></label>  
+                <input type="text" name="uname" placeholder="User Name" required><br> 
             
             </div>
-            <br>
+            
             <div class="form-label">
-                <label class="col-md-4 control-label" ><strong>Password:</strong></label>  
+                <label class="col-md-4 control-label" ><strong>Password</strong></label>  
                 <input type="text" name="password" placeholder="Password" required><br> 
             
             </div>
             <br>
             <div>
+                <p align="center"><font face="Verdana"><font color="#FFFFFF">
+                <input type="checkbox" name="rememberme" value="ON"></font><font size="2" color="black">Remember 
+                    Me</font></font></p>
                 <input type="submit" class="btn btn-success" value="Sign in">
         </form>
         

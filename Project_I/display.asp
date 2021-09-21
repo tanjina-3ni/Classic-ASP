@@ -27,7 +27,6 @@
         <div class="title_container">
             <h3>All Records</h3>
         </div>
-
         <!--#include file="navbar.asp"-->
         
 
