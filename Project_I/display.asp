@@ -13,7 +13,7 @@
 </head>
 <body>
     <%
-    if uname="" Then
+    if Session("username")="" Then
         Response.Redirect "index.asp"
     end if
     %>
@@ -22,11 +22,12 @@
         <div class="title_container">
             <h3>All Records</h3>
         </div>
+        <h6 style="background-color:rgb(71, 227, 255); width:100%;">User Name: <%Response.Write(Session("username"))%></h6> 
         <!--#include file="navbar.asp"-->
         <%
         <!--#include file ="session.asp"-->
         %>
-        <p>Welcome <%Response.Write(Session("username"))%></p> 
+       
         
 
 

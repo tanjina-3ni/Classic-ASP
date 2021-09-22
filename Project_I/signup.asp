@@ -11,6 +11,10 @@
 
 </head>
 <body>
+    <%
+    msg1 = Request.QueryString("msg1")
+    msg2 = Request.QueryString("msg2")
+    %>
     <div class="login_form_wrapper">
         <div class="title_container">
             <h3>Registration Form</h3>
@@ -22,13 +26,19 @@
                 <input type="text" name="uname" placeholder="User Name" required><br> 
             
             </div>
-            <br>
+            <% 'Invalid Username password
+                if msg1 <> "" then %>
+                    <p align="center"><font face="Verdana">
+                    </font><font size="2" color="red"><% Response.Write(msg1) %></font></font></p>
+             <% end if %>
             <div class="form-label">
                 <label class="col-md-4 control-label" ><strong>Password</strong></label>  
                 <input type="text" name="password" placeholder="Password" required><br> 
-            
             </div>
-            <br>
+            <% if msg2<> "" Then %>
+                    <p align="center"><font face="Verdana">
+                    </font><font size="2" color="red"><% Response.Write(msg2) %></font></font></p>
+            <% end if %>
             <div>
                 <input type="submit" class="btn btn-success" value="Confirm">
         </form>

@@ -3,27 +3,23 @@
     uname = Request.Form("uname")
     password = Request.Form("password")
     
-
-    msg = ""
-
+    
     set regEx = New RegExp
     regEx.Pattern = "[a-zA-Z0-9]"
     isValidE = regEx.Test(uname)
     if isValidE="False" Then
-        msg = msg + "Enter a valid User Name<br>"
+        msg1 = "Enter a valid User Name<br>"
+        response.Redirect("signup.asp?msg1="+msg1)
     end if
 
-    regEx.Pattern = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-    isValidE = regEx.Test(pass)
+    set rgEx = New RegExp
+    rgEx.Pattern = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+    isValidE = rgEx.Test(password)
     if isValidE="False" Then
-        msg = msg + "Enter a valid Password (Minimum eight characters, at least one letter and one number)<br>"
-    end if
-
-    if msg<>"" Then 
-        response.write(msg)
+        msg2 = "Enter a valid Password (Minimum eight characters, at least one letter and one number)<br>"
+        response.Redirect("signup.asp?msg2="+msg2)
         response.end
     end if
-
 
     ' connect to the database
     set conn=Server.CreateObject("ADODB.Connection")
@@ -41,8 +37,6 @@
     
     'If no records retrieved
     if rs.BOF and rs.EOF then
-        
-        
 
         sql="INSERT INTO signup (uname,[password])"
         sql=sql & " VALUES "
@@ -61,7 +55,8 @@
         end if
         
     else
-        Response.Redirect "signup.asp"
+    msg1 = "User Name Already Exists!"
+        Response.Redirect "signup.asp?msg1="+msg1
     end if
     rs.close
     conn.close
