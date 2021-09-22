@@ -5,12 +5,18 @@
     
 
     msg = ""
-    if uname="" Then
-        msg = msg + "Enter User Name<br>"
+
+    set regEx = New RegExp
+    regEx.Pattern = "[a-zA-Z0-9]"
+    isValidE = regEx.Test(uname)
+    if isValidE="False" Then
+        msg = msg + "Enter a valid User Name<br>"
     end if
 
-    if password="" Then
-        msg = msg + "Enter Password<br>"
+    regEx.Pattern = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+    isValidE = regEx.Test(pass)
+    if isValidE="False" Then
+        msg = msg + "Enter a valid Password (Minimum eight characters, at least one letter and one number)<br>"
     end if
 
     if msg<>"" Then 

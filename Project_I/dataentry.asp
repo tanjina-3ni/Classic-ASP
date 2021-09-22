@@ -104,7 +104,7 @@
     if err<>0 then
         Response.Write("No update permissions!")
     else
-        Response.Redirect "display.asp"
+        Response.Redirect "index.asp"
         
     end if
     conn.close
