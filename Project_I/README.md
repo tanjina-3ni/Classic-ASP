@@ -33,5 +33,13 @@ After signing up, you will need to fill out a form that will contain detailed in
 
 #### Display
 In this page, all records will be displayed. On left top side, your user name will be displayed. There is a menu bar from where you can sign out. Remember that after log out, your session and cookies will be destroyed, so you'll not be able to see records. You have to sign in again. <br>
-<p align="center"><img src="Images/Records.PNG"></p> <br>
+<p align="center"><img src="Images/Records.png"></p> <br>
 <p align="center">Fig 3.1: Records</p> <br>
+There are also search, edit and delete buttons.
+
+#### Search
+
+#### Edit
+
+#### Delete
+
