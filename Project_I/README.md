@@ -43,6 +43,9 @@ You can search by name, gender, date and skills only or together. After clicking
 <p align="center">Fig 5.1: Search</p> <br>
 
 #### Edit
+One can update information details using the edit button. After clicking on the Edit button a form will be displayed with existing data and he/she can edit the form and submit again. <br>
+<p align="center"><img src="Images/Update.PNG"></p> <br>
+<p align="center">Fig 6.1: Edit</p> <br>
 
 #### Delete
 
