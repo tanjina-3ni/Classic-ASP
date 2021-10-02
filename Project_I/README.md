@@ -43,9 +43,21 @@ You can search by name, gender, date and skills only or together. After clicking
 <p align="center">Fig 5.1: Search</p> <br>
 
 #### Edit
-One can update information details using the edit button. After clicking on the Edit button a form will be displayed with existing data and he/she can edit the form and submit again. <br>
+You can update information details using the edit button. After clicking on the Edit button a form will be displayed with existing data and you can edit the form and submit again. <br>
 <p align="center"><img src="Images/Update.PNG"></p> <br>
 <p align="center">Fig 6.1: Edit</p> <br>
 
 #### Delete
+You can delete your account by clicking on the delete button. After clicking the delete button an alert will be shown and you can delete by clicking ok or cancel it as well. <br>
+<p align="center"><img src="Images/delete.PNG"></p> <br>
+<p align="center">Fig 7.1: Delete</p> <br>
+As Ajax is used on delete operation, the row will be deleted without loading the page.
 
+### Outcome/ Learnings:
+We have -
+-	Learnt VBScript and MS Access Database.
+-	Used almost all types of HTML input, store their values in database as well as displayed data into forms by retrieving data from database.
+-	Implemented search operation using Ajax and learnt to handle query in a dynamic way.
+-	Learnt about session and cookies.
+-	Learnt about server side and client side verification and send alert from backend to front end.
+-	Moreover, we have learnt to handle a project in a smart way.
